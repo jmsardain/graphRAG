@@ -1,4 +1,4 @@
-# Graph-RAG for Scientifixc Q&A
+# Graph-RAG for Scientific Q&A
 
 This project implements a hybrid graph + retrieval augmented generation for answering question over scientific papers on arXiv.
 
