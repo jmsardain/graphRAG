@@ -6,3 +6,4 @@ sentence-transformers
 huggingface_hub
 openai
 bert-score
+arxiv
