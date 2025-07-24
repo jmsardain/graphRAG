@@ -9,18 +9,15 @@ def chunk_text(text, max_tokens=150):
     words = text.split()
     return [" ".join(words[i:i+max_tokens]) for i in range(0, len(words), max_tokens)]
 
-def build_prompt(query, chunks, graph_context):
+def build_prompt(query, chunks, graph_context, gnn_context=None):
     context_bullets = ''.join(['- ' + c + '\n' for c in chunks])
+    gnn_section = f"\nKey Entities from the Knowledge Graph (via GNN reasoning):\n{gnn_context}\n" if gnn_context else ""
     return f"""
-Answer the following scientific question based on retrieved information.
+You are an expert scientific assistant. Use both retrieved text and structured knowledge from a knowledge graph to answer the following question. The knowledge graph encodes relationships between scientific concepts, papers, and entities, and has been processed with graph neural networks (GNNs) to identify key relevant entities.
 
 Question: {query}
 
-Relevant Context:
-{context_bullets}
+Relevant Context:\n{context_bullets}
 
-Related Entities:
-{graph_context}
-
-Be accurate and cite evidence from the context.
+Related Entities from Graph Traversal:\n{graph_context}\n{gnn_section}Be accurate, cite evidence from the context, and leverage both the retrieved text and the knowledge graph for your answer.
 """

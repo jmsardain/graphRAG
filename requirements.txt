@@ -7,3 +7,6 @@ huggingface_hub
 openai
 bert-score
 arxiv
+torch
+torch-geometric
+dgl
