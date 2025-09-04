@@ -1,9 +1,0 @@
-networkx
-spacy
-pyvis
-faiss-cpu
-sentence-transformers
-huggingface_hub
-openai
-bert-score
-arxiv
