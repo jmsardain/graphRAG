@@ -20,11 +20,6 @@ git clone git@github.com:jmsardain/graphRAG.git
 cd graphRAG
 
 ## Run the code 
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--query", default="graph neural networks jet tagging particle physics", help="arXiv search query.")
-    parser.add_argument("--max", type=int, default=2, help="Maximum amount of arXiv papers from which to extract references.")
-    parser.add_argument("--draw", action='store_true', default=False, help="Draw graph from papers.")
-    args = parser.parse_args()
 ##### Draw the graph, doesn't evaluate
 python main.py --query <query> --max <max_number_arXiv_papers> --draw
 ##### To run the whole code, remove --draw 
@@ -57,6 +52,6 @@ python main.py --query <query> --max <max_number_arXiv_papers>
 ## Improvements
 - Not all references are extacted: instead of relying on pdf-to-text to extract arXiv, use connectedpapers API
 - Hard to define a metric: it is hard to define one, since the relevance of the output from the vector-approach versus the output from the graph-traversal approach can only be done by an expert. Semantic similarity or context extraction might not be the best approach to quantify the improvement. 
- 
+
 ## Problems/Questions ?
 For questions or contributions, please contact me and open an issue 🍻
